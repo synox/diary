@@ -62,3 +62,6 @@ There are a few similar projects. I didn't use them because I want the scripts t
 * https://github.com/matthiasbeyer/diary.sh/
 * https://github.com/colinux/GPG-Editor/blob/master/GPG-Editor.sh
 * https://github.com/almien1/NoPeeking
+
+Articles: 
+ * http://abesto.net/journaling-for-geeks/
