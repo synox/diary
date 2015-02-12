@@ -1,0 +1,3 @@
+#!/bin/bash 
+[[ -n "$1" ]] || (echo "file not found!"; exit 1)
+gpg --decrypt --output "-" --yes --quiet $1

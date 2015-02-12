@@ -1,0 +1,16 @@
+#!/bin/bash  -x
+GPG_KEYID=83BB96DF
+[[ -n "$1" ]] || (echo "file not found!"; exit 1)
+tmp=`mktemp -t diary`
+# save every draft
+fswatch -0 "$tmp" | xargs -0 -n 1 -I {} gpg --output $1.tmp --encrypt --armor --recipient $GPG_KEYID --yes --quiet $tmp  &
+FSWATCH_PID=$!
+
+# decrypt, edit, encrypt
+gpg --decrypt --output $tmp --yes --quiet $1 && \
+/Applications/Mou.app/Contents/MacOS/Mou $tmp
+gpg --output $1 --encrypt --armor --recipient $GPG_KEYID --yes --quiet $tmp
+
+# cleanup
+kill $FSWATCH_PID
+rm $tmp
