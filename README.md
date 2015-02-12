@@ -4,7 +4,7 @@ This collection of simple bash scripts provide an easy way to write  confidentia
 
 # setup (on osx)
  * brew install fswatch 
- * brew install gpg 
+ * install GnuPG  (https://gpgtools.org/)
  * create a new GPG key only for this purpose (choose a strong passphrase!)
  * add the scripts to your `PATH`. 
 
@@ -14,12 +14,14 @@ You have to configure some variables with your ``.bash_profile`` (or edit the so
     export DIARY_KEYID=1234567
     export DIARY_EDITOR=/Applications/Mou.app/Contents/MacOS/Mou
     export DIARY_DIRECTORY=/home/joe/diary
+    export READER=subl
 
 fishshell example:
 
     set -x DIARY_KEYID 1234567
     set -x DIARY_EDITOR /Applications/Mou.app/Contents/MacOS/Mou
     set -x DIARY_DIRECTORY /home/joe/diary
+    set -x READER subl
 
 # usage 
 ## write an entry (add)
@@ -42,7 +44,13 @@ or use the vim gpg plugin: https://github.com/jamessan/vim-gnupg
 
     vi path/to/file.txt.asc
 
-## decrypt to console
+## decrypt one entry console
 ``diary-print`` simply prints an entry to stdout. 
 
-    diary-print path/to/file.md.asc
+    diary-print path/to/file.txt.asc
+
+## read all entries
+``diary-read`` decrypts all entries and prints in $READER. It used `gpg2` for to use the gpg-agent on OSX. The implementation can be changed with the environment variable `GPG_CMD`.
+
+    diary-read
+
