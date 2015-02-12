@@ -1,25 +1,33 @@
 # encrypted diary 
-This is a quick and dirty collection of bash scripts that help creating encrypted diary entries. It uses GnuPG for encryption. It uses asymetric encryption, therefore you can write entries without entering the gpg password. Only for reading you need the keyfile and the password. 
+This collection of simple bash scripts provide an easy way to write  confidential notes with strong encryption. It uses asymetric GnuPG for encryption,  therefore you can write entries without entering the gpg password. You only have to decrypt (and enter your key-password) when you actually want to read something. 
 
-# setup on osx
- * brew install fswatch
- * create a new GPG key only for this purpose
+
+# setup (on osx)
+ * brew install fswatch 
+ * brew install gpg 
+ * create a new GPG key only for this purpose (choose a strong passphrase!)
 
 # configuration 
+You have to edit a few file before getting started: 
 
- * diary-add and diary-edit: set GPG_KEYID to your keyid 
- * diary-add: change default save location
+ * diary-add and diary-edit: set your keyid (GPG_KEYID)
+ * diary-add: change default directory (ENTRIES_DIR)
  * diary-edit: set your favorite text editor (instead of Mou) 
 
 # usage 
-## add entry
-diary-add works with stdin: 
+## write an entry (add)
+use ``diary-add`` which reads stdin: 
 
     echo my first entry | diary-add
 
     diary-add < notes.html
+    
+    diary-add
+     my first entry
+     <CTRL-D>
 
-## edit entry
+## edit encrypted entry
+use ``diary-edit`` to open gpg-file in a fancy text/markdown editor. When saving, the content is automatically encrypted again. 
 
     diary-edit path/to/file.txt.asc
 
@@ -27,13 +35,7 @@ or use the vim gpg plugin: https://github.com/jamessan/vim-gnupg
 
     vi path/to/file.txt.asc
 
-## print entry to console
+## decrypt to console
+``diary-print`` simply prints an entry to stdout. 
 
     diary-print path/to/file.md.asc
-    
-# motivation
-There should be a easy way to write confidential notes with strong encryption. But you should only decrypt if you actually want to read something. 
-
-The scripts are as simple as possible to make it possible to understand and validate. 
-
-Of course this tool is not limited to diary entries. 
