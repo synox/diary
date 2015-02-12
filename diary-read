@@ -5,7 +5,7 @@ READER=${DIARY_READER:-"less"}
 (
 for file in ~/diary/*; do
 	echo "---------------- $(basename $file .asc) ------------"
-	$GPG_CMD --decrypt --output "-" --yes --quiet $file 2> /dev/null
-	echo ""
+	$GPG_CMD --decrypt --output "-" --yes --quiet $file
+	echo 
 done
 ) | $READER
