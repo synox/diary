@@ -1,6 +1,6 @@
-#!/bin/bash  -x
-GPG_KEYID=83BB96DF
-EDITOR=/Applications/Mou.app/Contents/MacOS/Mou
+#!/bin/bash
+GPG_KEYID=${DIARY_KEYID:-"83BB96DF"}
+EDITOR=${DIARY_EDITOR:-"/Applications/Mou.app/Contents/MacOS/Mou"}
 
 [[ -n "$1" ]] || (echo "file not found!"; exit 1)
 tmp=`mktemp -t diary`

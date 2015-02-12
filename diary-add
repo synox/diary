@@ -1,6 +1,6 @@
 #!/bin/bash 
-GPG_KEYID=83BB96DF
-ENTRIES_DIR=~/diary
+GPG_KEYID=${DIARY_KEYID:-"83BB96DF"}
+ENTRIES_DIR=${DIARY_DIRECTORY:-"~/diary"}
 file="$ENTRIES_DIR/$(date  +%Y-%m-%d_%H%M%S).txt.asc"
 cat | gpg --output $file --encrypt --armor --recipient "$GPG_KEYID" --yes --quiet -
 ls -la $file

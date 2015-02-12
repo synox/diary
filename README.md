@@ -8,11 +8,17 @@ This collection of simple bash scripts provide an easy way to write  confidentia
  * create a new GPG key only for this purpose (choose a strong passphrase!)
 
 # configuration 
-You have to edit a few file before getting started: 
+You have to configure some variables with your ``.bash_profile`` (or edit the source files). bash example: 
 
- * diary-add and diary-edit: set your keyid (GPG_KEYID)
- * diary-add: change default directory (ENTRIES_DIR)
- * diary-edit: set your favorite text editor (instead of Mou) 
+    export DIARY_KEYID=1234567
+    export DIARY_EDITOR=/Applications/Mou.app/Contents/MacOS/Mou
+    export DIARY_DIRECTORY=/home/joe/diary
+
+fishshell example:
+
+    set -x DIARY_KEYID 1234567
+    set -x DIARY_EDITOR /Applications/Mou.app/Contents/MacOS/Mou
+    set -x DIARY_DIRECTORY /home/joe/diary
 
 # usage 
 ## write an entry (add)
