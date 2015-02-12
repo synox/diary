@@ -1,3 +1,0 @@
-#!/bin/bash 
-ENTRIES_DIR=~/diary
-gpg --decrypt --output "-" --yes --quiet $1

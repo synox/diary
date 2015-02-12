@@ -6,6 +6,7 @@ This collection of simple bash scripts provide an easy way to write  confidentia
  * brew install fswatch 
  * brew install gpg 
  * create a new GPG key only for this purpose (choose a strong passphrase!)
+ * add the scripts to your `PATH`. 
 
 # configuration 
 You have to configure some variables with your ``.bash_profile`` (or edit the source files). bash example: 
