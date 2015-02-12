@@ -14,14 +14,14 @@ You have to configure some variables with your ``.bash_profile`` (or edit the so
     export DIARY_KEYID=1234567
     export DIARY_EDITOR=/Applications/Mou.app/Contents/MacOS/Mou
     export DIARY_DIRECTORY=/home/joe/diary
-    export READER=subl
+    export DIARY_READER=subl
 
 fishshell example:
 
     set -x DIARY_KEYID 1234567
     set -x DIARY_EDITOR /Applications/Mou.app/Contents/MacOS/Mou
     set -x DIARY_DIRECTORY /home/joe/diary
-    set -x READER subl
+    set -x DIARY_READER subl
 
 # usage 
 ## write an entry (add)
