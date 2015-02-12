@@ -54,3 +54,11 @@ or use the vim gpg plugin: https://github.com/jamessan/vim-gnupg
 
     diary-read
 
+----
+
+### similar projects
+There are a few similar projects. I didn't use them because I want the scripts to be short and validatable. 
+
+* https://github.com/matthiasbeyer/diary.sh/
+* https://github.com/colinux/GPG-Editor/blob/master/GPG-Editor.sh
+* https://github.com/almien1/NoPeeking
