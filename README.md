@@ -34,6 +34,11 @@ use ``diary-add`` which reads stdin:
     diary-add
      my first entry
      <CTRL-D>
+     
+or you can attach a file
+
+    diary-add /home/john/photo.jpg
+     
 
 ## edit encrypted entry
 use ``diary-edit`` to open gpg-file in a fancy text/markdown editor. When saving, the content is automatically encrypted again. 
