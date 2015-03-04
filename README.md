@@ -30,10 +30,12 @@ use ``diary-add`` which reads stdin:
     echo my first entry | diary-add
 
     diary-add < notes.html
-    
+        
     diary-add
      my first entry
      <CTRL-D>
+     
+`diary-add-hidden` is just like `diary-add`, but without echoing what you type. 
      
 or you can attach a file
 
