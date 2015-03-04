@@ -57,7 +57,7 @@ or use the vim gpg plugin: https://github.com/jamessan/vim-gnupg
     diary-print path/to/file.txt.asc
 
 ## read all entries
-``diary-read`` decrypts all entries and prints in $READER. It used `gpg2` for to use the gpg-agent on OSX. The implementation can be changed with the environment variable `GPG_CMD`.
+``diary-read`` decrypts all entries and prints in $DIARY_READER. It used `gpg2` for to use the gpg-agent on OSX. The implementation can be changed with the environment variable `GPG_CMD`.
 
     diary-read
 
