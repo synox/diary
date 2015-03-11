@@ -45,16 +45,16 @@ or you can attach a file
 ## edit encrypted entry
 use ``diary-edit`` to open gpg-file in a fancy text/markdown editor. When saving, the content is automatically encrypted again. 
 
-    diary-edit path/to/file.txt.asc
+    diary-edit path/to/file.txt.gpg
 
 or use the vim gpg plugin: https://github.com/jamessan/vim-gnupg
 
-    vi path/to/file.txt.asc
+    vi path/to/file.txt.gpg
 
 ## decrypt one entry console
 ``diary-print`` simply prints an entry to stdout. 
 
-    diary-print path/to/file.txt.asc
+    diary-print path/to/file.txt.gpg
 
 ## read all entries
 ``diary-read`` decrypts all entries and prints in $DIARY_READER. It used `gpg2` for to use the gpg-agent on OSX. The implementation can be changed with the environment variable `GPG_CMD`.

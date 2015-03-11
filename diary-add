@@ -4,12 +4,12 @@ ENTRIES_DIR=${DIARY_DIRECTORY:-"~/diary"}
 
 if [ $# -gt 0 ]; then 
     for file in $@; do
-       dest="$ENTRIES_DIR/$(date  +%Y-%m-%d_%H%M%S).${file##*.}.asc"
+       dest="$ENTRIES_DIR/$(date  +%Y-%m-%d_%H%M%S).${file##*.}.gpg"
        gpg --output $dest --encrypt --armor --recipient "$GPG_KEYID" --yes --quiet $file
        ls -la $dest
     done
 else  
-    dest="$ENTRIES_DIR/$(date  +%Y-%m-%d_%H%M%S).txt.asc"
+    dest="$ENTRIES_DIR/$(date  +%Y-%m-%d_%H%M%S).txt.gpg"
     cat | gpg --output $dest --encrypt --armor --recipient "$GPG_KEYID" --yes --quiet -
     ls -la $dest
 fi
