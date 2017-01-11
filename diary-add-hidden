@@ -1,17 +1,17 @@
-#!/bin/bash 
+#!/bin/bash
 GPG_KEYID=${DIARY_KEYID:-"83BB96DF"}
-ENTRIES_DIR=${DIARY_DIRECTORY:-"~/diary"}
+ENTRIES_DIR=${DIARY_DIRECTORY:-"/Users/synox/diary"}
 
-if [ $# -gt 0 ]; then 
-    for file in $@; do
+if [ $# -gt 0 ]; then
+    for file in "$@"; do
        dest="$ENTRIES_DIR/$(date  +%Y-%m-%d_%H%M%S).${file##*.}.gpg"
-       gpg --output $dest --encrypt --armor --recipient "$GPG_KEYID" --yes --quiet $file
-       ls -la $dest
+       gpg --output "$dest" --encrypt --armor --recipient "$GPG_KEYID" --yes --quiet "$file"
+       ls -la "$dest"
     done
-else  
+else
     dest="$ENTRIES_DIR/$(date  +%Y-%m-%d_%H%M%S).txt.gpg"
-    stty -echo # disable echo of the commands you type 
-    cat | gpg --output $dest --encrypt --armor --recipient "$GPG_KEYID" --yes --quiet -
+    stty -echo # disable echo of the commands you type
+    cat | gpg --output "$dest" --encrypt --armor --recipient "$GPG_KEYID" --yes --quiet -
     stty echo  # enable echo
-    ls -la $dest
+    ls -la "$dest"
 fi

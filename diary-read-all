@@ -1,11 +1,11 @@
-#!/bin/bash 
-ENTRIES_DIR=${DIARY_DIRECTORY:-"~/diary"}
+#!/bin/bash
+ENTRIES_DIR=${DIARY_DIRECTORY:-"/Users/synox/diary"}
 GPG_CMD=${DIARY_GPG:-"gpg2"}
 READER=${DIARY_READER:-"less"}
 (
-for file in ~/diary/*.txt*; do
-	echo "---------------- $(basename $file .gpg) ------------"
-	$GPG_CMD --decrypt --output "-" --yes --quiet $file
-	echo 
+for file in $ENTRIES_DIR/*.txt*; do
+	echo "---------------- $(basename "$file" .gpg) ------------"
+	$GPG_CMD --decrypt --output "-" --yes --quiet "$file"
+	echo
 done
 ) | $READER
