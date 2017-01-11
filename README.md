@@ -11,55 +11,69 @@ This collection of simple bash scripts provide an easy way to write  confidentia
 # configuration 
 You have to configure some variables with your ``.bash_profile`` (or edit the source files). bash example: 
 
-    export DIARY_KEYID=1234567
-    export DIARY_EDITOR=/Applications/Mou.app/Contents/MacOS/Mou
-    export DIARY_DIRECTORY=/home/joe/diary
-    export DIARY_READER=subl
-
+```bash
+export DIARY_KEYID=1234567
+export DIARY_EDITOR=/Applications/Mou.app/Contents/MacOS/Mou
+export DIARY_DIRECTORY=/home/joe/diary
+export DIARY_READER=subl
+```
+    
 fishshell example:
 
-    set -x DIARY_KEYID 1234567
-    set -x DIARY_EDITOR /Applications/Mou.app/Contents/MacOS/Mou
-    set -x DIARY_DIRECTORY /home/joe/diary
-    set -x DIARY_READER subl
+```bash
+set -x DIARY_KEYID 1234567
+set -x DIARY_EDITOR /Applications/Mou.app/Contents/MacOS/Mou
+set -x DIARY_DIRECTORY /home/joe/diary
+set -x DIARY_READER subl
+```
 
 # usage 
 ## write an entry (add)
 use ``diary-add`` which reads stdin: 
 
-    echo my first entry | diary-add
+```bash
+echo my first entry | diary-add
 
-    diary-add < notes.html
-        
-    diary-add
-     my first entry
-     <CTRL-D>
+diary-add < notes.html
+    
+diary-add
+ my first entry
+ <CTRL-D>
+ ```
      
 `diary-add-hidden` is just like `diary-add`, but without echoing what you type. 
      
 or you can attach a file
 
-    diary-add /home/john/photo.jpg
-     
+```bash
+diary-add /home/john/photo.jpg
+```
 
 ## edit encrypted entry
 use ``diary-edit`` to open gpg-file in a fancy text/markdown editor. When saving, the content is automatically encrypted again. 
 
-    diary-edit path/to/file.txt.gpg
-
+```bash
+diary-edit path/to/file.txt.gpg
+```
 or use the vim gpg plugin: https://github.com/jamessan/vim-gnupg
 
-    vi path/to/file.txt.gpg
+```bash
+vi path/to/file.txt.gpg
+```
 
 ## decrypt one entry console
 ``diary-print`` simply prints an entry to stdout. 
 
-    diary-print path/to/file.txt.gpg
+```bash
+diary-print path/to/file.txt.gpg
+```
 
 ## read all entries
 ``diary-read`` decrypts all entries and prints in $DIARY_READER. It used `gpg2` for to use the gpg-agent on OSX. The implementation can be changed with the environment variable `GPG_CMD`.
 
-    diary-read
+```bash
+diary-read
+```
 
 ----
 
