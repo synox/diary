@@ -1,6 +1,7 @@
 # encrypted diary
 This collection of simple bash scripts provide an easy way to write  confidential notes with strong encryption. It uses asymetric GnuPG for encryption,  therefore you can write entries without entering the gpg password. You only have to decrypt (and enter your key-password) when you actually want to read something.
 
+Hint: Can be combined mit https://github.com/synox/secret-letterbox
 
 # setup (on osx)
  * brew install fswatch
